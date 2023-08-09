@@ -1,5 +1,6 @@
 plugins {
     id("java")
+    id("maven-publish")
 }
 
 group = "b100.asmloader"
@@ -16,6 +17,18 @@ dependencies {
     // ASM Stuff
     implementation("org.ow2.asm:asm:9.5")
     implementation("org.ow2.asm:asm-tree:9.5")
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = "b100.asmloader"
+            artifactId = "ASMLoader"
+            version = "1.7.7.0"
+
+            from(components["java"])
+        }
+    }
 }
 
 tasks.test {
