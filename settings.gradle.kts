@@ -1,0 +1,2 @@
+rootProject.name = "ASMLoader-gradle"
+
