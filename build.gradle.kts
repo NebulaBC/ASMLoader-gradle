@@ -31,6 +31,14 @@ publishing {
     }
 }
 
+tasks.withType<Jar> {
+    manifest {
+        attributes["Premain-Class"] = "b100.asmloader.ASMLoaderAgent"
+        attributes["Main-Class"] = "b100.asmloader.gui.ASMLoaderGUI"
+        attributes["Can-Retransform-Classes"] = true
+    }
+}
+
 tasks.test {
     useJUnitPlatform()
 }
